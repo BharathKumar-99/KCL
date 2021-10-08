@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signupback"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".SignupandSignin.Signup.Signup">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="@string/membership_registration"
+        android:textAlignment="center"
+        android:textColor="#D32F2F"
+        android:textSize="34sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="25dp"
+        android:paddingLeft="25dp"
+        android:paddingEnd="25dp"
+        android:paddingRight="25dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/fathername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Father Name"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Date of Birth"
+                android:inputType="date"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/bloodgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Blood Group"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/adharnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Aadhaar Number"
+                android:inputType="number"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/networkname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Network Name"
+                android:inputType="number"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/doorno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Door No"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/streetname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Street Name"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Pincode"
+                android:inputType="textPostalAddress"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/village"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Village"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="State" />
+
+            <Spinner
+                android:id="@+id/state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="District" />
+
+            <Spinner
+                android:id="@+id/District"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/taluk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Taluk"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/nname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nominee Name"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/naddar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nominee Aadhaar No"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/nrelation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nominee Relationship"
+                android:inputType="textPersonName"
+                android:paddingTop="15dp" />
+
+            <EditText
+                android:id="@+id/ndob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nominee DOB"
+                android:inputType="date"
+                android:paddingTop="15dp" />
+
+            <Button
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Choose a photo" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="Submit" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
