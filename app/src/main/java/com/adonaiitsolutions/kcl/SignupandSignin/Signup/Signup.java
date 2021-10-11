@@ -18,7 +18,15 @@ import android.widget.Toast;
 import com.adonaiitsolutions.kcl.Api;
 import com.adonaiitsolutions.kcl.R;
 import com.adonaiitsolutions.kcl.SignupandSignin.SignupModel;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -111,7 +119,6 @@ Button pic,submit;
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://aiccollege.com/PHP/")
-
                     .addConverterFactory(GsonConverterFactory.create())
                     // at last we are building our retrofit builder.
                     .build();
@@ -124,34 +131,22 @@ Button pic,submit;
                     nomineerelation,nomineedob,state,district,photo);
 
             // calling a method to create a post and passing our modal class.
-            Call<SignupModel> call = retrofitAPI.createPost(modal);
+            Call<ResponseBody> call = retrofitAPI.createPost(name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,
+                    village,state,District,taluk,nomineename,nomineeaddar,nomineerelation,nomineedob);
 
             // on below line we are executing our method.
-            call.enqueue(new Callback<SignupModel>() {
+            call.enqueue(new Callback<ResponseBody>() {
                 @Override
-                public void onResponse(Call<SignupModel> call, Response<SignupModel> response) {
-                    // this method is called when we get response from our api.
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    Log.d("TAG", "onResponse: "+response.body().toString());
 
-                    // below line is for hiding our progress bar.
-
-                    // on below line we are setting empty text
-                    // to our both edit text
-                    Log.d("TAG", "onResponse: ");
-                    // we are getting response from our body
-                    // and passing it to our modal class.
-                    SignupModel responseFromAPI = response.body();
-
-                    // on below line we are getting our data from modal class and adding it to our string.
-                    String responseString = "Response Code : " + response.code() + "\nName : " +
-                            responseFromAPI.getName() + "\n" + "Job : " + responseFromAPI.getName();
 
                 }
 
                 @Override
-                public void onFailure(Call<SignupModel> call, Throwable t) {
-                    Log.d("TAG", "onFailure: ");
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Log.d("TAG", "onFailure: "+t);
                 }
-
 
             });
     }
