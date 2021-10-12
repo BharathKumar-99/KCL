@@ -4,18 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.adonaiitsolutions.kcl.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class SigninandSignup extends AppCompatActivity {
     TabLayout tabLayout;
+    Context context;
     ViewPager2 viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signinand_signup);
+
+
+
 
     tabLayout=(TabLayout)findViewById(R.id.signuptab);
     viewPager=findViewById(R.id.viewpager);

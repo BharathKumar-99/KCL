@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/KCL/app/src/main/res/drawable/buttonround.xml" value="0.25" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/drawable/textback.xml" value="0.2713541666666667" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/drawable/uiwhite.xml" value="0.2713541666666667" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/drawable/whiteback.xml" value="0.2713541666666667" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/aboutus_fragment.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_main.xml" value="0.2512820512820513" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_signinand_signup.xml" value="0.22" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_signup.xml" value="0.2552083333333333" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_dashboard.xml" value="0.128125" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_home.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_signin.xml" value="0.2512820512820513" />
-        <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.33" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
+        <entry key="..\:/Projects/KCL/app/src/main/res/layout/gallery_fragment.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2512820512820513" />
       </map>
     </option>

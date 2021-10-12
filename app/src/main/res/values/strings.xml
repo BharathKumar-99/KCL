@@ -12,4 +12,24 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup">Signup</string>
     <string name="membership_registration">Membership Registration</string>
+
+    <string name="aboutus_points">The first of its kind in the state of Karnataka is an extensive organization
+        formed by the self-employed small-scale cable operators of Karnataka. It marks a revolutionary and extra
+        ordinary stride in the world of cable TV distribution in India. This was started as an attempt to sustain
+        the business models of the small operators in the state and strategic modernization in the un-organized
+        world of cable TV.Cable TV distribution started in a big way in Karnataka in the beginning of the 1990s.
+        Today it has become permeating as electricity and telephone lines, reaching every nook and corner of the
+        state. The necessity to constantly upgrade the technology in the field initially prompted the need for a
+        union. But by the middle of the 90s, it became a dire necessity to face the multiple challenges the business
+        faced, like the onslaught by the MSOs, the skyrocketing rates of the pay channels. Soon KSCOA
+        grew into an organization with taluk level in each district of Karnataka with more than 10,000
+        operators under them. The executive committee headed by an efficient leadership runs the day to
+        day functioning of the organization. The state committee has sub-committees to look into each
+        problem area and implement solutions. The district level committees control the district level
+        administrations, which in turn impart all information to the member operators</string>
+    <string name="aboutus_points2">
+        KSCOA conducts a varied range of activities every year. KSCOA conducts state level campaigns that consist of processions and public meetings to raise public awareness against the invasions of large scale MSOs and to protest the various unjust rules and regulations of the Centre and State governments. Cable TV Operators are regularly trained in the use of the latest technology under our guidance. Protests and strikes against the unfriendly business policies of the government, increase in taxes and resistance to the unjustifiable increase in rates by the pay channels are all some of the many episodes in the history of KSCOA
+    </string>
+
+
 </resources>

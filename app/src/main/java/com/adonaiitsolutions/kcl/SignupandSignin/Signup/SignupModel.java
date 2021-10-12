@@ -1,4 +1,4 @@
-package com.adonaiitsolutions.kcl.SignupandSignin;
+package com.adonaiitsolutions.kcl.SignupandSignin.Signup;
 
 public class SignupModel {
     String  name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,

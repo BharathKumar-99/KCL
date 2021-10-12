@@ -222,10 +222,13 @@
 
             <Button
                 android:id="@+id/submit"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/buttonround"
                 android:paddingTop="15dp"
-                android:text="Submit" />
+                android:text="Submit"
+                android:textColor="#D32F2F" />
 
         </LinearLayout>
     </ScrollView>

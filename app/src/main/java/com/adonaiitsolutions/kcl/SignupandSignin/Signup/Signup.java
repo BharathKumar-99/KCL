@@ -13,18 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.adonaiitsolutions.kcl.Api;
+import com.adonaiitsolutions.kcl.SignupandSignin.Api;
 import com.adonaiitsolutions.kcl.R;
-import com.adonaiitsolutions.kcl.SignupandSignin.SignupModel;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -131,23 +122,20 @@ Button pic,submit;
                     nomineerelation,nomineedob,state,district,photo);
 
             // calling a method to create a post and passing our modal class.
-            Call<ResponseBody> call = retrofitAPI.createPost(name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,
+            Call<SignupModel> call = retrofitAPI.createPost(name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,
                     village,state,District,taluk,nomineename,nomineeaddar,nomineerelation,nomineedob);
 
             // on below line we are executing our method.
-            call.enqueue(new Callback<ResponseBody>() {
+            call.enqueue(new Callback<SignupModel>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    Log.d("TAG", "onResponse: "+response.body().toString());
-
-
+                public void onResponse(Call<SignupModel> call, Response<SignupModel> response) {
+                    Log.d("TAG", "onResponse: "+response.toString());
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Log.d("TAG", "onFailure: "+t);
-                }
+                public void onFailure(Call<SignupModel> call, Throwable t) {
 
+                }
             });
     }
 

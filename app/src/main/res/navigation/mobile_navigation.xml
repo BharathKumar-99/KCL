@@ -10,16 +10,15 @@
         android:name="com.adonaiitsolutions.kcl.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.adonaiitsolutions.kcl.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/navigation_aboutus"
+        android:name="com.adonaiitsolutions.kcl.ui.aboutus.aboutus"
+        android:label="aboutus_fragment"
+        tools:layout="@layout/aboutus_fragment" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.adonaiitsolutions.kcl.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_gallery"
+        android:name="com.adonaiitsolutions.kcl.ui.gallery.Gallery"
+        android:label="gallery_fragment"
+        tools:layout="@layout/gallery_fragment" />
+
 </navigation>

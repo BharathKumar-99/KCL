@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FBC02D"
     android:orientation="vertical"
     tools:context=".SignupandSignin.SigninandSignup">
 
@@ -18,7 +19,11 @@
         android:id="@+id/signuptab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B61010" />
+        android:background="@drawable/whiteback"
+        app:tabIndicatorColor="#00FFFFFF"
+        app:tabSelectedTextColor="#D32F2F"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:tabTextColor="#000000" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
