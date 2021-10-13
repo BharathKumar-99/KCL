@@ -15,19 +15,10 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Signup"
+            android:name=".SignupandSignin.Signup.Signup"
             android:exported="true" />
         <activity
             android:name=".SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SignupandSignin.SigninandSignup"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.adonaiitsolutions.kcl.SignupandSignin.SigninandSignup;
+import com.adonaiitsolutions.kcl.SignupandSignin.Signup.Signup;
 
 public class SplashScreen extends AppCompatActivity {
 ImageView imageView;
@@ -27,7 +27,7 @@ ImageView imageView;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, SigninandSignup.class));
+                startActivity(new Intent(SplashScreen.this, Signup.class));
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                 finish();
             }
