@@ -1,77 +1,129 @@
 package com.adonaiitsolutions.kcl.SignupandSignin.Signup;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.app.DatePickerDialog;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.adonaiitsolutions.kcl.SignupandSignin.Api;
 import com.adonaiitsolutions.kcl.R;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
-
-public class Signup extends Fragment {
+public class Signup extends AppCompatActivity {
     String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
-    NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic;
-TextView name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,
-        taluk,nomineename,nomineeaddar,nomineerelation,nomineedob;
-Spinner state,district;
-Button pic,submit;
-    public Signup() {
-        // Required empty public constructor
-    }
+            NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic;
+    TextView name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,
+            taluk,nomineename,nomineeaddar,nomineerelation,nomineedob;
+    Spinner state,district;
+    Button pic,submit;
+    int code;
+    final Calendar myCalendar = Calendar.getInstance();
+Boolean validated=false;
+    SignupViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_signup, container, false);
-        return view;
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_signup);
 
-    }
+        name =  findViewById(R.id.name);
+        father_name =  findViewById(R.id.fathername);
+        dob =  findViewById(R.id.dob);
+        blood =  findViewById(R.id.bloodgroup);
+        phone =  findViewById(R.id.phonenumber);
+        email =  findViewById(R.id.email);
+        adhar =  findViewById(R.id.adharnum);
+        networkname =  findViewById(R.id.networkname);
+        doorno =  findViewById(R.id.doorno);
+        streetname =  findViewById(R.id.streetname);
+        pin =  findViewById(R.id.pin);
+        village =  findViewById(R.id.village);
+        state =  findViewById(R.id.state);
+        district =  findViewById(R.id.District);
+        taluk =  findViewById(R.id.taluk);
+        nomineename =  findViewById(R.id.nname);
+        nomineeaddar =  findViewById(R.id.naddar);
+        nomineerelation =  findViewById(R.id.nrelation);
+        nomineedob =  findViewById(R.id.ndob);
+        pic =  findViewById(R.id.photo);
+        submit =  findViewById(R.id.submit);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        name = view.findViewById(R.id.name);
-        father_name = view.findViewById(R.id.fathername);
-        dob = view.findViewById(R.id.dob);
-        blood = view.findViewById(R.id.bloodgroup);
-        phone = view.findViewById(R.id.phonenumber);
-        email = view.findViewById(R.id.email);
-        adhar = view.findViewById(R.id.adharnum);
-        networkname = view.findViewById(R.id.networkname);
-        doorno = view.findViewById(R.id.doorno);
-        streetname = view.findViewById(R.id.streetname);
-        pin = view.findViewById(R.id.pin);
-        village = view.findViewById(R.id.village);
-        state = view.findViewById(R.id.state);
-        district = view.findViewById(R.id.District);
-        taluk = view.findViewById(R.id.taluk);
-        nomineename = view.findViewById(R.id.nname);
-        nomineeaddar = view.findViewById(R.id.naddar);
-        nomineerelation = view.findViewById(R.id.nrelation);
-        nomineedob = view.findViewById(R.id.ndob);
-        pic = view.findViewById(R.id.photo);
-        submit = view.findViewById(R.id.submit);
+        state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+             State=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        // Spinner Drop down elements
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.india_states));
+
+        state.setAdapter(adapter);
+
+
+        district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                District=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        // Spinner Drop down elements
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.karnataka_district));
+
+        district.setAdapter(adapter1);
+
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel(code);
+            }
+
+        };
+
+        dob.setOnClickListener(v->{
+            new DatePickerDialog(Signup.this, date, myCalendar
+                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            code=1;
+        });
+        nomineedob.setOnClickListener(v->{
+            new DatePickerDialog(Signup.this, date, myCalendar
+                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            code=2;
+        });
 
         submit.setOnClickListener(v -> {
             Name = name.getText().toString();
@@ -86,8 +138,6 @@ Button pic,submit;
             StreetName = streetname.getText().toString();
             Pin = pin.getText().toString();
             Village = village.getText().toString();
-            State = "Karnataka";
-            District = "Bangalore";
             Taluk = taluk.getText().toString();
             NomineeName = nomineename.getText().toString();
             NomineeAddar = nomineeaddar.getText().toString();
@@ -95,49 +145,107 @@ Button pic,submit;
             NomineeDob = nomineedob.getText().toString();
             Pic = "Path";
 
-            postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
-            Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic);
+
+            validator();
+            if(validated){
+            viewModel=new ViewModelProvider(this).get(SignupViewModel.class);
 
 
-        });
-    }
-        private void postData(String name, String father_name, String dob, String blood, String phone,
-                              String email, String adhar, String networkname, String doorno,
-                              String streetname, String pin, String village, String taluk,
-                              String nomineename, String nomineeaddar, String nomineerelation,
-                              String nomineedob, String state, String district, String photo) {
 
+           String result= viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
+                    Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic);
 
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://aiccollege.com/PHP/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    // at last we are building our retrofit builder.
-                    .build();
-            // below line is to create an instance for our retrofit api class.
-            Api retrofitAPI = retrofit.create(Api.class);
+            Toast.makeText(Signup.this, result, Toast.LENGTH_SHORT).show();
 
+                name.setText(null);
+                father_name.setText(null);
+                dob.setText(null);
+                blood.setText(null);
+                phone.setText(null);
+                email.setText(null);
+                adhar.setText(null);
+                networkname.setText(null);
+                doorno.setText(null);
+                streetname.setText(null);
+                pin.setText(null);
+                taluk.setText(null);
+                nomineename.setText(null);
+                nomineeaddar.setText(null);
+                nomineerelation.setText(null);
+                nomineedob.setText(null);
+            }
 
-            SignupModel modal = new SignupModel(name,father_name,dob,blood,phone,email,adhar,
-                    networkname,doorno,streetname,pin,village, taluk,nomineename,nomineeaddar,
-                    nomineerelation,nomineedob,state,district,photo);
-
-            // calling a method to create a post and passing our modal class.
-            Call<SignupModel> call = retrofitAPI.createPost(name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,
-                    village,state,District,taluk,nomineename,nomineeaddar,nomineerelation,nomineedob);
-
-            // on below line we are executing our method.
-            call.enqueue(new Callback<SignupModel>() {
-                @Override
-                public void onResponse(Call<SignupModel> call, Response<SignupModel> response) {
-                    Log.d("TAG", "onResponse: "+response.toString());
-                }
-
-                @Override
-                public void onFailure(Call<SignupModel> call, Throwable t) {
-
-                }
             });
     }
 
+    private void updateLabel(int code) {
+
+        String myFormat = "dd/MM/yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        if (code == 1) {
+            dob.setText(sdf.format(myCalendar.getTime()));
+            code=0;
+        }if (code == 2){
+            nomineedob.setText(sdf.format(myCalendar.getTime()));
+            code=0;
+    }
 
     }
+
+
+
+
+    public Boolean validator(){
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if(Name.length()==0)
+        {
+            name.requestFocus();
+            name.setError("FIELD CANNOT BE EMPTY");validated=false;
+        }
+        else if(!Name.matches("[a-zA-Z ]+"))
+        {
+            name.requestFocus();
+            name.setError("ENTER ONLY ALPHABETICAL CHARACTER");validated=false;
+        }
+        //name
+       else if(Fathername.length()==0)
+        {
+            father_name.requestFocus();
+            father_name.setError("FIELD CANNOT BE EMPTY");validated=false;
+        }
+        else if(!Fathername.matches("[a-zA-Z ]+"))
+        {
+            father_name.requestFocus();
+            father_name.setError("ENTER ONLY ALPHABETICAL CHARACTER");validated=false;
+        }
+       else if(Phone.length()==0)
+        {
+            phone.requestFocus();
+            phone.setError("FIELD CANNOT BE EMPTY");validated=false;
+        }
+        else if(!(Phone.length() ==10))
+        {
+            phone.requestFocus();
+            phone.setError("InValid Number");validated=false;
+        }//phone
+       else if(Addar.length()==0)
+        {
+            adhar.requestFocus();
+            adhar.setError("FIELD CANNOT BE EMPTY");validated=false;
+        }
+        else if(!(Addar.length() ==12))
+        {
+            adhar.requestFocus();
+            adhar.setError("Invalid");validated=false;
+        }
+
+        else if (!Email.matches(emailPattern))
+        {
+            email.setError("Invalid Email");
+            validated=false;
+        }
+        else
+            return validated=true;
+        return validated;
+    }
+}

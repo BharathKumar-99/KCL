@@ -1,4 +1,4 @@
-package com.adonaiitsolutions.kcl.SignupandSignin;
+package com.adonaiitsolutions.kcl.SignupandSignin.Signup;
 
 import com.adonaiitsolutions.kcl.SignupandSignin.Signup.SignupModel;
 
@@ -13,12 +13,12 @@ public interface Api {
     @FormUrlEncoded
     @POST("signup.php")
     Call<SignupModel> createPost(@Field("name") String name,
-                                 @Field("father_name") String Fathername,
+                                 @Field("fname") String Fathername,
                                  @Field("dob") String dob, @Field("blood_group") String Blood,
-                                 @Field("mobile_number") String Mobile, @Field("email") String Email,
-                                 @Field("aadhaar_card") String Adhar, @Field("network_name") String network,
-                                 @Field("door_no") String doorno, @Field("street_name") String street,
-                                 @Field("pincode") String pincode, @Field("village") String Village,
+                                 @Field("telephone") String Mobile, @Field("email") String Email,
+                                 @Field("adhar_card") String Adhar, @Field("network_name") String network,
+                                 @Field("address") String doorno, @Field("address2") String street,
+                                 @Field("postcode") String pincode, @Field("village") String Village,
                                  @Field("state") String State, @Field("city") String City, @Field("taluk") String taluk,
                                  @Field("nominename") String nominemane, @Field("nominename_adhar")
                                          String nominename_adhar, @Field("nominename_relation") String nominename_relation,
