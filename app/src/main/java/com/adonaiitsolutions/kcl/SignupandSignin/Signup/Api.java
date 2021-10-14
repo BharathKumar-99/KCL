@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 public interface Api {
     @FormUrlEncoded
     @POST("signup.php")
-    Call<SignupModel> createPost(@Field("name") String name,
+    Call<ValidityResponse> createPost(@Field("name") String name,
                                  @Field("fname") String Fathername,
                                  @Field("dob") String dob, @Field("blood_group") String Blood,
                                  @Field("telephone") String Mobile, @Field("email") String Email,

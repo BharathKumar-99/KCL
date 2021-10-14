@@ -155,7 +155,7 @@ Boolean validated=false;
            String result= viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
                     Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic);
 
-            Toast.makeText(Signup.this, result, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Signup.this, result, Toast.LENGTH_SHORT).show();
 
                 name.setText(null);
                 father_name.setText(null);
