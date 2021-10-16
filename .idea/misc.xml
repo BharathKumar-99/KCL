@@ -8,9 +8,7 @@
         <entry key="..\:/Projects/KCL/app/src/main/res/drawable/uiwhite.xml" value="0.2713541666666667" />
         <entry key="..\:/Projects/KCL/app/src/main/res/drawable/whiteback.xml" value="0.2713541666666667" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/aboutus_fragment.xml" value="0.2552083333333333" />
-        <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_main.xml" value="0.2512820512820513" />
-        <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_signin.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_signinand_signup.xml" value="0.22" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_signup.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
@@ -20,6 +18,11 @@
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/gallery_fragment.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2512820512820513" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/drawable/textback.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_signin.xml" value="0.1" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
       </map>
     </option>
   </component>

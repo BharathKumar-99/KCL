@@ -80,7 +80,7 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="Blood Group"
-                android:inputType="number|text"
+                android:inputType="text"
                 android:padding="15dp" />
 
             <EditText
@@ -107,6 +107,19 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textback"
+                android:drawableLeft="@android:drawable/ic_lock_lock"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="15dp" />
 
             <EditText
@@ -260,6 +273,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="Nominee DOB"
                 android:inputType="date"
                 android:paddingTop="15dp" />

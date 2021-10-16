@@ -22,9 +22,9 @@ import java.util.Locale;
 
 public class Signup extends AppCompatActivity {
     String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
-            NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic;
+            NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password;
     TextView name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,
-            taluk,nomineename,nomineeaddar,nomineerelation,nomineedob;
+            taluk,nomineename,nomineeaddar,nomineerelation,nomineedob,password;
     Spinner state,district;
     Button pic,submit;
     int code;
@@ -58,6 +58,7 @@ Boolean validated=false;
         nomineedob =  findViewById(R.id.ndob);
         pic =  findViewById(R.id.photo);
         submit =  findViewById(R.id.submit);
+        password =  findViewById(R.id.password);
 
         state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -143,6 +144,7 @@ Boolean validated=false;
             NomineeAddar = nomineeaddar.getText().toString();
             NomineeRelation = nomineerelation.getText().toString();
             NomineeDob = nomineedob.getText().toString();
+            Password=password.getText().toString();
             Pic = "Path";
 
 
@@ -153,9 +155,9 @@ Boolean validated=false;
 
 
            String result= viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
-                    Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic);
+                    Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password);
 
-                Toast.makeText(Signup.this, result, Toast.LENGTH_SHORT).show();
+
 
                 name.setText(null);
                 father_name.setText(null);
@@ -173,6 +175,7 @@ Boolean validated=false;
                 nomineeaddar.setText(null);
                 nomineerelation.setText(null);
                 nomineedob.setText(null);
+                password.setText(null);
             }
 
             });

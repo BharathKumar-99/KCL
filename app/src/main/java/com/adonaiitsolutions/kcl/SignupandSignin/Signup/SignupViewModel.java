@@ -37,7 +37,7 @@ Context context;
                            String email, String adhar, String networkname, String doorno,
                            String streetname, String pin, String village, String taluk,
                            String nomineename, String nomineeaddar, String nomineerelation,
-                           String nomineedob, String state, String district, String photo) {
+                           String nomineedob, String state, String district, String photo,String Password) {
 
 
 
@@ -71,6 +71,8 @@ Context context;
                 parms.put("nominename_adhar",nomineeaddar);
                 parms.put("nominename_relation",nomineerelation);
                 parms.put("n_dob",nomineedob);
+                parms.put("password",Password);
+
                 return parms;
             }
         };
