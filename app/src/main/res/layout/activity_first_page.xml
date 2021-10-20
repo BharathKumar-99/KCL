@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".SignupandSignin.FirstPage" >
+    android:background="@drawable/login"
+    tools:context=".SignupandSignin.FirstPage">
 
     <TextView
         android:id="@+id/loginf"
@@ -14,7 +15,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="248dp"
         android:text="Login"
-        android:textColor="#FFFFFF"
+        android:textColor="#F44336"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
         android:gravity="center|left"
-        android:text="login \nAnonymously "
+        android:text="login \n Anonymously "
         android:textColor="#388E3C"
         android:textSize="40sp"
         android:textStyle="bold"

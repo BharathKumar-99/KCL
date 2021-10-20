@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.adonaiitsolutions.kcl.SignupandSignin.FirstPage;
+import com.adonaiitsolutions.kcl.SignupandSignin.Signin.Signin;
 import com.adonaiitsolutions.kcl.SignupandSignin.Signup.Signup;
 
 public class SplashScreen extends AppCompatActivity {
@@ -24,13 +26,10 @@ ImageView imageView;
 
         imageView.setAnimation(animationUptoDown);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreen.this, Signup.class));
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, FirstPage.class));
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            finish();
         },4000);
 
     }
