@@ -31,7 +31,7 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:hint="Phone Number"
-        android:inputType="number"
+        android:inputType="textEmailAddress"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

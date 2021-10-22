@@ -20,10 +20,12 @@
         <entry key="..\:/Projects/KCL/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2512820512820513" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/drawable/textback.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.2" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_profile.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_signin.xml" value="0.264" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_signup.xml" value="0.2" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
+        <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/profile_fragment.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>
