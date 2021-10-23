@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 
 import android.content.Intent;
@@ -36,8 +37,10 @@ import com.github.drjacky.imagepicker.ImagePicker;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 import com.paytm.pgsdk.TransactionManager;
+import com.razorpay.Checkout;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
@@ -102,7 +105,7 @@ public class Signup extends AppCompatActivity {
         pic =  findViewById(R.id.photo);
         submit =  findViewById(R.id.submit);
         password =  findViewById(R.id.password);
-
+        Checkout.preload(getApplicationContext());
         ActivityResultLauncher<Intent> launcher =
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
                     if (result.getResultCode() == RESULT_OK) {
@@ -242,7 +245,7 @@ public class Signup extends AppCompatActivity {
                 orderidstring=date2+String.valueOf(randomnumber);
 
 
-                getToken();
+                startPayment();
 
 
            String result= viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
@@ -351,118 +354,47 @@ public class Signup extends AppCompatActivity {
         return validated;
     }
 
-    public  void getToken(){
-        Log.e(TAG, " get token start");
+    public void startPayment() {
 
-        ServiceWrapper serviceWrapper = new ServiceWrapper(null);
-        Call<Token_Res> call =
-                serviceWrapper.getTokenCall("12345", midstring, orderidstring, txnamountstring);
-        call.enqueue(new Callback<Token_Res>() {
+        /**
+         * Instantiate Checkout
+         */
+        Checkout checkout = new Checkout();
+        checkout.setKeyID("rzp_test_BvhzNuyrg28U7d");
+        /**
+         * Set your logo here
+         */
+        checkout.setImage(R.drawable.logo);
 
+        /**
+         * Reference to current activity
+         */
+        final Activity activity = this;
 
-            @Override
-            public void onResponse(Call<Token_Res> call, Response<Token_Res> response) {
-                Log.e(TAG, " respo "+ response.isSuccessful() );
+        /**
+         * Pass your payment options to the Razorpay Checkout as a JSONObject
+         */
+        try {
+            JSONObject options = new JSONObject();
 
-                try {
-                    if (response.isSuccessful() && response.body()!=null){
-                        if (!response.body().getBody().getTxnToken().equals("")) {
-                            Log.e(TAG, " transaction token : "+response.body().getBody()
-                                    .getTxnToken());
-                            startPaytmPayment(response.body().getBody().getTxnToken());
-                        }else {
-                            Log.e(TAG, " Token status false");
-                        }
-                    }
-                }catch (Exception e){
-                    Log.e(TAG, " error in Token Res "+e.toString());
-                }
-            }
-            @Override
-            public void onFailure(Call<Token_Res> call, Throwable t) {
+            options.put("name", "Merchant Name");
+            options.put("description", "Reference No. #123456");
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
+            options.put("theme.color", "#3399cc");
+            options.put("currency", "INR");
+            options.put("amount", "50000");//pass amount in currency subunits
+            options.put("prefill.email", "gaurav.kumar@example.com");
+            options.put("prefill.contact","9988776655");
+            JSONObject retryObj = new JSONObject();
+            retryObj.put("enabled", true);
+            retryObj.put("max_count", 4);
+            options.put("retry", retryObj);
 
-                Log.e(TAG, " response error "+t.toString());
-            }
-        });
-    }
+            checkout.open(activity, options);
 
-    public void startPaytmPayment (String token){
-        txntokenstring = token;
-        // for test mode use it
-        // String host = "https://securegw-stage.paytm.in/";
-        // for production mode use it
-        String host = "https://securegw.paytm.in/";
-        String orderDetails = "MID: " + midstring + ", OrderId: " + orderidstring +
-                ", TxnToken: " + txntokenstring
-                + ", Amount: " + txnamountstring;
-        //Log.e(TAG, "order details "+ orderDetails);
-        String callBackUrl = "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=ORDERID_98765";
-        Log.e(TAG, " callback URL "+callBackUrl);
-        PaytmOrder paytmOrder = new PaytmOrder(orderidstring, midstring, txntokenstring, txnamountstring, callBackUrl);
-        TransactionManager transactionManager = new TransactionManager(paytmOrder, new PaytmPaymentTransactionCallback(){
-            @Override
-            public void onTransactionResponse(Bundle bundle) {
-                Log.e(TAG, "Response (onTransactionResponse) : "+bundle.toString());
-            }
-            @Override
-            public void networkNotAvailable() {
-                Log.e(TAG, "network not available ");
-            }
-            @Override
-            public void onErrorProceed(String s) {
-                Log.e(TAG, " onErrorProcess "+s.toString());
-            }
-            @Override
-            public void clientAuthenticationFailed(String s) {
-                Log.e(TAG, "Clientauth "+s);
-            }
-            @Override
-            public void someUIErrorOccurred(String s) {
-                Log.e(TAG, " UI error "+s);
-            }
-            @Override
-            public void onErrorLoadingWebPage(int i, String s, String s1) {
-                Log.e(TAG, " error loading web "+s+"--"+s1);
-            }
-            @Override
-            public void onBackPressedCancelTransaction() {
-                Log.e(TAG, "backPress ");
-            }
-            @Override
-            public void onTransactionCancel(String s, Bundle bundle) {
-                Log.e(TAG, " transaction cancel "+s);
-            }
-        });
-        transactionManager.setShowPaymentUrl(host + "theia/api/v1/showPaymentPage");
-        transactionManager.startTransaction(this, ActivityRequestCode);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e(TAG ," result code "+resultCode);
-        // -1 means successful  // 0 means failed
-        // one error is - nativeSdkForMerchantMessage : networkError
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ActivityRequestCode && data != null) {
-            Bundle bundle = data.getExtras();
-            if (bundle != null) {
-                for (String key : bundle.keySet()) {
-                    Log.e(TAG, key + " : " + (bundle.get(key) != null ? bundle.get(key) : "NULL"));
-                }
-            }
-            Log.e(TAG, " data "+  data.getStringExtra("nativeSdkForMerchantMessage"));
-            Log.e(TAG, " data response - "+data.getStringExtra("response"));
-/*
- data response - {"BANKNAME":"WALLET","BANKTXNID":"1394221115",
- "CHECKSUMHASH":"7jRCFIk6eRmrep+IhnmQrlrL43KSCSXrmM+VHP5pH0ekXaaxjt3MEgd1N9mLtWyu4VwpWexHOILCTAhybOo5EVDmAEV33rg2VAS/p0PXdk\u003d",
- "CURRENCY":"INR","GATEWAYNAME":"WALLET","MID":"EAcP3138556","ORDERID":"100620202152",
- "PAYMENTMODE":"PPI","RESPCODE":"01","RESPMSG":"Txn Success","STATUS":"TXN_SUCCESS",
- "TXNAMOUNT":"2.00","TXNDATE":"2020-06-10 16:57:45.0","TXNID":"2020061011121280011018328631290118"}
-  */
-            Toast.makeText(this, data.getStringExtra("nativeSdkForMerchantMessage")
-                    + data.getStringExtra("response"), Toast.LENGTH_SHORT).show();
-        }else{
-            Log.e(TAG, " payment failed");
+        } catch(Exception e) {
+            Log.e(TAG, "Error in starting Razorpay Checkout", e);
         }
     }
-
 }

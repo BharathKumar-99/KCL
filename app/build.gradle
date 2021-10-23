@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.adonaiitsolutions.kcl"
         minSdk 19
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -66,7 +66,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation 'com.google.code.gson:gson:2.8.8'
     // paytm all in one sdk
-
+    implementation 'com.razorpay:checkout:1.6.14'
 
 
 
