@@ -4,7 +4,7 @@ package com.adonaiitsolutions.kcl.SignupandSignin.Signup;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,25 +18,22 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
-import android.provider.MediaStore;
+
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
+
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 
 import com.adonaiitsolutions.kcl.R;
 import com.github.drjacky.imagepicker.ImagePicker;
-import com.paytm.pgsdk.PaytmOrder;
-import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
-import com.paytm.pgsdk.TransactionManager;
+
 import com.razorpay.Checkout;
 import com.razorpay.PaymentData;
 import com.razorpay.PaymentResultWithDataListener;
@@ -45,7 +42,7 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileDescriptor;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -56,16 +53,14 @@ import java.util.Random;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 
 
 public class Signup extends AppCompatActivity implements PaymentResultWithDataListener {
 
-    private static final int PICK_IMAGE_REQUEST = 23;
+
     private static final String TAG = "tag";
-    private Integer ActivityRequestCode = 2;
+
     String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
             NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password;
     TextView name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,
@@ -122,28 +117,23 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
                             e.printStackTrace();
                         }
                     } else if (result.getResultCode() == ImagePicker.RESULT_ERROR) {
-                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
+                        ImagePicker.Companion.getError(result.getData());
                     }
                 });
-        pic.setOnClickListener(v->{
-            ImagePicker.Companion.with(this)
-                    .crop()
-                    .maxResultSize(512, 512, true)
-                    .createIntentFromDialog((Function1) (new Function1() {
-                        public Object invoke(Object var1) {
-                            this.invoke((Intent) var1);
-                            return Unit.INSTANCE;
-                        }
+        pic.setOnClickListener(v-> ImagePicker.Companion.with(this)
+                .crop()
+                .maxResultSize(512, 512, true)
+                .createIntentFromDialog((Function1) (new Function1() {
+                    public Object invoke(Object var1) {
+                        this.invoke((Intent) var1);
+                        return Unit.INSTANCE;
+                    }
 
-                        public final void invoke(@NotNull Intent it) {
-                            Intrinsics.checkNotNullParameter(it, "it");
-                            launcher.launch(it);
-                        }
-                    }));
-
-
-
-        });
+                    public final void invoke(@NotNull Intent it) {
+                        Intrinsics.checkNotNullParameter(it, "it");
+                        launcher.launch(it);
+                    }
+                })));
 
         state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -157,7 +147,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
             }
         });
         // Spinner Drop down elements
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.india_states));
@@ -184,18 +174,12 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
 
         district.setAdapter(adapter1);
 
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog.OnDateSetListener date = (view, year, monthOfYear, dayOfMonth) -> {
 
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel(code);
-            }
-
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel(code);
         };
 
         dob.setOnClickListener(v->{
@@ -239,7 +223,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
             viewModel=new ViewModelProvider(this).get(SignupViewModel.class);
 
             Calendar c=Calendar.getInstance();
-            @SuppressLint("SimpleDateFormat") SimpleDateFormat df=new SimpleDateFormat("dd/mm/yyyy");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat df=new SimpleDateFormat("dd/MM/yyyy");
             String date2=df.format(c.getTime());
                 Random rand=new Random();
                 int min=1000,max=9999;
@@ -250,7 +234,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
                 startPayment();
 
 
-           String result= viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
+         viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
                     Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password);
 
 
@@ -358,24 +342,12 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
 
     public void startPayment() {
 
-        /**
-         * Instantiate Checkout
-         */
         Checkout checkout = new Checkout();
         checkout.setKeyID("rzp_test_BvhzNuyrg28U7d");
-        /**
-         * Set your logo here
-         */
         checkout.setImage(R.drawable.logo);
 
-        /**
-         * Reference to current activity
-         */
         final Activity activity = this;
 
-        /**
-         * Pass your payment options to the Razorpay Checkout as a JSONObject
-         */
         try {
             JSONObject options = new JSONObject();
 
