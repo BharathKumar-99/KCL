@@ -38,6 +38,8 @@ import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 import com.paytm.pgsdk.TransactionManager;
 import com.razorpay.Checkout;
+import com.razorpay.PaymentData;
+import com.razorpay.PaymentResultWithDataListener;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -59,7 +61,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity implements PaymentResultWithDataListener {
 
     private static final int PICK_IMAGE_REQUEST = 23;
     private static final String TAG = "tag";
@@ -187,7 +189,7 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
+
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -377,15 +379,15 @@ public class Signup extends AppCompatActivity {
         try {
             JSONObject options = new JSONObject();
 
-            options.put("name", "Merchant Name");
-            options.put("description", "Reference No. #123456");
+            options.put("name", "tag");
+            options.put("description", "Rd");
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
-            options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
+           options.put("order_id", "4586");//from response of step 3.
             options.put("theme.color", "#3399cc");
             options.put("currency", "INR");
             options.put("amount", "50000");//pass amount in currency subunits
             options.put("prefill.email", "gaurav.kumar@example.com");
-            options.put("prefill.contact","9988776655");
+            options.put("prefill.contact","6362255348");
             JSONObject retryObj = new JSONObject();
             retryObj.put("enabled", true);
             retryObj.put("max_count", 4);
@@ -396,5 +398,15 @@ public class Signup extends AppCompatActivity {
         } catch(Exception e) {
             Log.e(TAG, "Error in starting Razorpay Checkout", e);
         }
+    }
+
+    @Override
+    public void onPaymentSuccess(String s, PaymentData paymentData) {
+        Log.d(TAG, "onPaymentSuccess: "+s );
+    }
+
+    @Override
+    public void onPaymentError(int i, String s, PaymentData paymentData) {
+        Log.d(TAG, "onPaymentError: "+s+paymentData);
     }
 }

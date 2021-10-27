@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/login"
+    android:background="@drawable/ic_firstpage"
     tools:context=".SignupandSignin.FirstPage">
 
     <TextView
         android:id="@+id/loginf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="152dp"
         android:text="Login"
-        android:textColor="#F44336"
+        android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,27 +25,13 @@
         android:id="@+id/signupf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="216dp"
         android:text="@string/signup"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginf" />
-
-    <TextView
-        android:id="@+id/loginano"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center|left"
-        android:text="login \n Anonymously "
-        android:textColor="#388E3C"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupf" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
