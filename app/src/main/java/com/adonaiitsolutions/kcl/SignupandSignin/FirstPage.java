@@ -11,7 +11,7 @@ import com.adonaiitsolutions.kcl.SignupandSignin.Signin.Signin;
 import com.adonaiitsolutions.kcl.SignupandSignin.Signup.Signup;
 
 public class FirstPage extends AppCompatActivity {
-TextView login,sign,anomisly;
+TextView login,sign;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,7 @@ TextView login,sign,anomisly;
 
         login=findViewById(R.id.loginf);
         sign=findViewById(R.id.signupf);
-        anomisly=findViewById(R.id.loginano);
+
 
         login.setOnClickListener(v->{
 
@@ -31,9 +31,6 @@ TextView login,sign,anomisly;
             startActivity(new Intent(this, Signup.class));
             finishAffinity();
         });
-        anomisly.setOnClickListener(v->{
 
-         //
-        });
     }
 }
