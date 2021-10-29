@@ -84,7 +84,7 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/blood_group"
-                android:hintTextColor="#1976D2"
+                android:hintTextColor="#8D8E8F"
                 android:inputType="text"
                 android:padding="15dp"
                 tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
@@ -100,7 +100,7 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/phone_number"
-                android:hintTextColor="#1976D2"
+                android:hintTextColor="#888B8E"
                 android:inputType="number|phone"
                 android:padding="15dp" />
 
