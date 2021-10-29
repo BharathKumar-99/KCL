@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/signup"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
@@ -25,14 +25,13 @@
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="50dp">
 
@@ -44,10 +43,10 @@
                 android:drawableStart="@drawable/name"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="@string/name"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:padding="15dp"
-                android:importantForAutofill="no" />
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/fathername"
@@ -58,18 +57,21 @@
                 android:drawableStart="@drawable/name"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Father Name"
+                android:hint="@string/father_name"
                 android:inputType="textPersonName"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:focusable="false"
-                android:hint="Date of Birth"
+                android:hint="@string/date_of_birth"
+                android:hintTextColor="#686868"
                 android:inputType="date"
                 android:paddingTop="15dp" />
 
@@ -78,23 +80,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Blood Group"
+                android:hint="@string/blood_group"
+                android:hintTextColor="#1976D2"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="15dp"
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/textback"
-                android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+                android:drawableStart="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Phone Number"
-                android:inputType="number"
+                android:hint="@string/phone_number"
+                android:hintTextColor="#1976D2"
+                android:inputType="number|phone"
                 android:padding="15dp" />
 
             <EditText
@@ -102,13 +109,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/textback"
-                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawableStart="@drawable/ic_baseline_email_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/email"
+                android:hintTextColor="#1976D2"
                 android:inputType="textEmailAddress"
-                android:padding="15dp" />
+                android:padding="15dp"
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/password"
@@ -116,12 +126,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
-                android:drawableLeft="@android:drawable/ic_lock_lock"
+                android:drawableStart="@android:drawable/ic_lock_lock"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password"
+                android:hintTextColor="#1976D2"
                 android:inputType="textPassword"
-                android:padding="15dp" />
+                android:padding="15dp"
+                tools:ignore="TextContrastCheck,TextContrastCheck"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/adharnum"
@@ -130,9 +143,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Aadhaar Number"
+                android:hint="@string/aadhaar_number"
                 android:inputType="number"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/networkname"
@@ -141,9 +155,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Network Name"
+                android:hint="@string/network_name"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/doorno"
@@ -152,9 +167,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Door No"
+                android:hint="@string/door_no"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/streetname"
@@ -163,9 +179,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Street Name"
+                android:hint="@string/street_name"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/pin"
@@ -173,12 +190,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
-                android:drawableLeft="@drawable/ic_baseline_pin_drop_24"
+                android:drawableStart="@drawable/ic_baseline_pin_drop_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Pincode"
+                android:hint="@string/pincode"
                 android:inputType="textPostalAddress"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/village"
@@ -187,10 +205,11 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Village"
+                android:hint="@string/village"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -198,7 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:paddingTop="15dp"
-                android:text="State" />
+                android:text="@string/state" />
 
             <Spinner
                 android:id="@+id/state"
@@ -212,12 +231,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:paddingTop="15dp"
-                android:text="District" />
+                android:text="@string/district" />
 
             <Spinner
                 android:id="@+id/District"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:paddingTop="15dp" />
 
             <EditText
@@ -227,10 +247,11 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Taluk"
+                android:hint="@string/taluk"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/nname"
@@ -239,10 +260,11 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Nominee Name"
+                android:hint="@string/nominee_name"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/naddar"
@@ -251,10 +273,11 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Nominee Aadhaar No"
+                android:hint="@string/nominee_aadhaar_no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/nrelation"
@@ -263,10 +286,11 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
-                android:hint="Nominee Relationship"
+                android:hint="@string/nominee_relationship"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/ndob"
@@ -275,17 +299,18 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:focusable="false"
-                android:hint="Nominee DOB"
+                android:hint="@string/nominee_dob"
                 android:inputType="date"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                android:autofillHints="" />
 
             <Button
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingTop="15dp"
-                android:text="Choose a photo" />
+                android:background="@color/purple_700"
+                android:text="@string/choose_a_photo" />
 
             <Button
                 android:id="@+id/submit"
@@ -294,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/buttonround"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:textColor="#D32F2F" />
 
         </LinearLayout>

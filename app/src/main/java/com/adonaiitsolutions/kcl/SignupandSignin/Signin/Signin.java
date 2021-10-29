@@ -1,10 +1,10 @@
 package com.adonaiitsolutions.kcl.SignupandSignin.Signin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -31,7 +31,7 @@ Button login;
     String email1;
     boolean result;
 String Phone,Password;
-SigninViewmodel signinViewmodel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ SigninViewmodel signinViewmodel;
         password=findViewById(R.id.loginpassword);
        login=findViewById(R.id.login);
 
-       signinViewmodel=new ViewModelProvider(this).get(SigninViewmodel.class);
+
        login.setOnClickListener(v->{
 
                Phone = phone.getText().toString();
@@ -81,7 +81,6 @@ SigninViewmodel signinViewmodel;
                             i.putExtra("key",email1);
                             startActivity(i);
                             finishAffinity();
-                            update();
                         }else {
                             Toast.makeText(this, "Login Failed Check phone and Password", Toast.LENGTH_SHORT).show();
                         }
@@ -103,11 +102,5 @@ SigninViewmodel signinViewmodel;
         requestQueue.add(stringRequest);
 
     }
-    public void update(){
-        if(result){
 
-
-        }else
-            Toast.makeText(this, "Login Failed Check phone and Password", Toast.LENGTH_SHORT).show();
-    }
 }

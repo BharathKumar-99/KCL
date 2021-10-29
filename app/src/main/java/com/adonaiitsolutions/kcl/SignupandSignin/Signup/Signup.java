@@ -6,11 +6,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+
 import android.app.DatePickerDialog;
 
 import android.content.Intent;
@@ -19,35 +19,28 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
+
 import android.util.Base64;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-
-
 import com.adonaiitsolutions.kcl.R;
 import com.github.drjacky.imagepicker.ImagePicker;
-
 import com.razorpay.Checkout;
-import com.razorpay.PaymentData;
-import com.razorpay.PaymentResultWithDataListener;
-
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import java.util.Locale;
+
 import java.util.Random;
 
 import kotlin.Unit;
@@ -56,10 +49,10 @@ import kotlin.jvm.internal.Intrinsics;
 
 
 
-public class Signup extends AppCompatActivity implements PaymentResultWithDataListener {
+public class Signup extends AppCompatActivity  {
 
 
-    private static final String TAG = "tag";
+
 
     String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
             NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password;
@@ -69,12 +62,12 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
     Button pic,submit;
     Uri uri;
     int code;
-    String midstring="KSCOAP03123586941687",txnamountstring="1",orderidstring="",txntokenstring="";
     final Calendar myCalendar = Calendar.getInstance();
     Boolean validated=false;
-    SignupViewModel viewModel;
+
     String path;
     Bitmap bitmap;
+    View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +99,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
         ActivityResultLauncher<Intent> launcher =
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
                     if (result.getResultCode() == RESULT_OK) {
+                        assert result.getData() != null;
                         uri = result.getData().getData();
                         // Use the uri to load the image
                         try {
@@ -117,7 +111,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
                             e.printStackTrace();
                         }
                     } else if (result.getResultCode() == ImagePicker.RESULT_ERROR) {
-                        ImagePicker.Companion.getError(result.getData());
+                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
                     }
                 });
         pic.setOnClickListener(v-> ImagePicker.Companion.with(this)
@@ -174,12 +168,18 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
 
         district.setAdapter(adapter1);
 
-        DatePickerDialog.OnDateSetListener date = (view, year, monthOfYear, dayOfMonth) -> {
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, monthOfYear);
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabel(code);
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel(code);
+            }
+
         };
 
         dob.setOnClickListener(v->{
@@ -196,6 +196,7 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
         });
 
         submit.setOnClickListener(v -> {
+     //       getorderid();
             Name = name.getText().toString();
             Fathername = father_name.getText().toString();
             Dob = dob.getText().toString();
@@ -217,25 +218,41 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
             Pic=path;
 
 
-
             validator();
             if(validated){
-            viewModel=new ViewModelProvider(this).get(SignupViewModel.class);
+
 
             Calendar c=Calendar.getInstance();
-            @SuppressLint("SimpleDateFormat") SimpleDateFormat df=new SimpleDateFormat("dd/MM/yyyy");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat df=new SimpleDateFormat("dd/mm/yyyy");
             String date2=df.format(c.getTime());
                 Random rand=new Random();
                 int min=1000,max=9999;
                 int randomnumber=rand.nextInt((max-min)+1)+min;
-                orderidstring=date2+String.valueOf(randomnumber);
 
+                Intent myIntent = new Intent(this, PaymentActivity.class);
+                myIntent.putExtra("name",Name);
+                myIntent.putExtra("fname",Fathername);
+                myIntent.putExtra("dob",Dob);
+                myIntent.putExtra("blood",Blood);
+                myIntent.putExtra("phone",Phone);
+                myIntent.putExtra("email",Email);
+                myIntent.putExtra("adhar",Addar);
+                myIntent.putExtra("Networkname",NetworkName);
+                myIntent.putExtra("Doorno",Doorno);
+                myIntent.putExtra("Streetname",StreetName);
+                myIntent.putExtra("pin",Pin);
+                myIntent.putExtra("village",Village);
+                myIntent.putExtra("Taluk",Taluk);
+                myIntent.putExtra("Naddar",NomineeAddar);
+                myIntent.putExtra("Nname",NomineeName);
+                myIntent.putExtra("Ndob",NomineeDob);
+                myIntent.putExtra("Nrelation",NomineeRelation);
+                myIntent.putExtra("Password",Password);
+                myIntent.putExtra("Pic",Pic);
+                myIntent.putExtra("State",State);
+                myIntent.putExtra("district",District);
+                startActivity(myIntent);
 
-                startPayment();
-
-
-         viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
-                    Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password);
 
 
 
@@ -340,45 +357,4 @@ public class Signup extends AppCompatActivity implements PaymentResultWithDataLi
         return validated;
     }
 
-    public void startPayment() {
-
-        Checkout checkout = new Checkout();
-        checkout.setKeyID("rzp_test_BvhzNuyrg28U7d");
-        checkout.setImage(R.drawable.logo);
-
-        final Activity activity = this;
-
-        try {
-            JSONObject options = new JSONObject();
-
-            options.put("name", "tag");
-            options.put("description", "Rd");
-            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
-           options.put("order_id", "4586");//from response of step 3.
-            options.put("theme.color", "#3399cc");
-            options.put("currency", "INR");
-            options.put("amount", "50000");//pass amount in currency subunits
-            options.put("prefill.email", "gaurav.kumar@example.com");
-            options.put("prefill.contact","6362255348");
-            JSONObject retryObj = new JSONObject();
-            retryObj.put("enabled", true);
-            retryObj.put("max_count", 4);
-            options.put("retry", retryObj);
-
-            checkout.open(activity, options);
-
-        } catch(Exception e) {
-            Log.e(TAG, "Error in starting Razorpay Checkout", e);
-        }
-    }
-
-    @Override
-    public void onPaymentSuccess(String s, PaymentData paymentData) {
-        Log.d(TAG, "onPaymentSuccess: "+s );
-    }
-
-    @Override
-    public void onPaymentError(int i, String s, PaymentData paymentData) {
-        Log.d(TAG, "onPaymentError: "+s+paymentData);
-    }
 }

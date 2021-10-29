@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -14,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
 
+import com.adonaiitsolutions.kcl.SignupandSignin.SendMail;
+import com.adonaiitsolutions.kcl.SignupandSignin.Signin.Signin;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -47,27 +50,29 @@ import retrofit2.Retrofit;
 
 
 
-public class SignupViewModel extends AndroidViewModel {
+public class SignupViewModel {
     String Response;
     @SuppressLint("StaticFieldLeak")
     Context context;
 
-    public SignupViewModel(@NonNull Application application) {
-        super(application);
-        context = application.getApplicationContext();
-    }
+
 
     public String postData(String name, String father_name, String dob, String blood, String phone,
                            String email, String adhar, String networkname, String doorno,
                            String streetname, String pin, String village, String taluk,
                            String nomineename, String nomineeaddar, String nomineerelation,
-                           String nomineedob, String state, String district, String photo, String Password) {
+                           String nomineedob, String state, String district, String photo,
+                           String Password,String pid,Context context) {
 
-
+this.context=context;
         String url = "http://aiccollege.com/PHP/signup.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                response -> Log.d("TAG", "onResponse: " + response),
+                response ->{ Log.d("TAG", "onResponse: " + response);
+                    Toast.makeText(context, "login done", Toast.LENGTH_SHORT).show();
+Signin signup=new Signin();
+signup.login(email,Password);
+                },
                 error -> Log.d("TAG", "onErrorResponse: " + error.toString())) {
             @Override
             protected Map<String, String> getParams() {
@@ -95,7 +100,7 @@ public class SignupViewModel extends AndroidViewModel {
                 parms.put("n_dob", nomineedob);
                 parms.put("password", Password);
                 parms.put("upload", photo);
-
+                parms.put("pid",pid);
                 return parms;
             }
         };
