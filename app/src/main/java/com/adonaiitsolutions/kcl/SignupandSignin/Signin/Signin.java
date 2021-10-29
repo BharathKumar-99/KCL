@@ -61,16 +61,21 @@ String Phone,Password;
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url,
                 response ->{
+
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.d("TAG", "onResponse: "+ response);
-                        if(response.equals("Login Success")){
+                    if (jsonObject.optString("login").equals("1")){
                             result=true;
                             try {
-                                JSONArray jsonArray = new JSONArray(response);
-                                JSONObject jsonObject = jsonArray.getJSONObject(0);
 
-                                 email1 = jsonObject.getString("email");
+                                 email1 = jsonObject.getString("message");
 
-
+                                Log.d("TAG", "login: "+email1);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
