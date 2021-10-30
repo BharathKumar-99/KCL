@@ -3,6 +3,7 @@ package com.adonaiitsolutions.kcl.SignupandSignin.Signup;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 import android.util.Base64;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
 
+import com.adonaiitsolutions.kcl.SignupandSignin.FirstPage;
 import com.adonaiitsolutions.kcl.SignupandSignin.SendMail;
 import com.adonaiitsolutions.kcl.SignupandSignin.Signin.Signin;
 import com.android.volley.AuthFailureError;
@@ -70,8 +72,8 @@ this.context=context;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response ->{ Log.d("TAG", "onResponse: " + response);
                     Toast.makeText(context, "login done", Toast.LENGTH_SHORT).show();
-Signin signup=new Signin();
-signup.login(email,Password);
+context.startActivity(new Intent(context, FirstPage.class));
+
                 },
                 error -> Log.d("TAG", "onErrorResponse: " + error.toString())) {
             @Override

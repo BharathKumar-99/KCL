@@ -120,19 +120,19 @@ co.setKeyID("rzp_test_I9bLBsYMiIzN1P");
 
                     SendMail sender = new SendMail(
 
+                            "kclmailsender@gmail.com",
+
+                            "kcl@1234");
+
+
+
+                    sender.sendMail("New Customer Registered", "Name:-"+Name+" Email:-"+Email+"Phone:-"+Phone,
+
                             "Sender",
 
-                            "Password");
+                            "kscoa.r@gmail.com", vie);
 
-
-
-                    sender.sendMail("Payment Successfully Completed", "Thanks for Choosing KCL network ",
-
-                            "Sender",
-
-                            "info.adonai21@gmail.com", vie);
-
-
+                    Log.d(TAG, "onPaymentSuccess:sent" );
                 } catch (Exception e) {
 
                     Toast.makeText(PaymentActivity.this, "Error", Toast.LENGTH_LONG).show();

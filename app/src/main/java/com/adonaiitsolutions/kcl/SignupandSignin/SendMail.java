@@ -160,7 +160,8 @@ public class SendMail extends javax.mail.Authenticator {
         if(sent){
 
             Log.d("TAG", "sendMail: sent");
-        }
+        }else
+            Log.d("TAG", "sendMail: not sent ");
 
     }
 

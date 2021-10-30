@@ -12,13 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adonaiitsolutions.kcl.R;
+import com.adonaiitsolutions.kcl.SignupandSignin.Signup.Signup;
 import com.adonaiitsolutions.kcl.ui.Profile.ProfileActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Signin extends AppCompatActivity {
-TextView phone,password;
+TextView phone,password,signupnav;
 Button login;
     String email1;
     boolean result;
@@ -40,6 +41,7 @@ String Phone,Password;
         phone=findViewById(R.id.loginnumber);
         password=findViewById(R.id.loginpassword);
        login=findViewById(R.id.login);
+        signupnav=findViewById(R.id.signupnav);
 
 
        login.setOnClickListener(v->{
@@ -48,7 +50,7 @@ String Phone,Password;
                Password = password.getText().toString();
                 login(Phone,Password);
 
-
+           signupnav.setOnClickListener(e-> startActivity(new Intent(this, Signup.class)));
 
 
        });
@@ -69,6 +71,7 @@ String Phone,Password;
                         e.printStackTrace();
                     }
                     Log.d("TAG", "onResponse: "+ response);
+                    assert jsonObject != null;
                     if (jsonObject.optString("login").equals("1")){
                             result=true;
                             try {
