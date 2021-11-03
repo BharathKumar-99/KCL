@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 
 import com.adonaiitsolutions.kcl.R;
-import com.adonaiitsolutions.kcl.SignupandSignin.SendMail;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -24,42 +23,13 @@ import org.json.JSONObject;
 
 public class PaymentActivity extends Activity implements PaymentResultListener {
     private static final String TAG = PaymentActivity.class.getSimpleName();
-    String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
-            NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password;
+    String Phone,Email;
     View vie;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_payment);
-
-        Intent callingIntent = getIntent();
-
-      Name=callingIntent.getStringExtra("name");
-       Fathername= callingIntent.getStringExtra("fname");
-       Dob= callingIntent.getStringExtra("dob");
-        Blood=callingIntent.getStringExtra("blood");
-        Phone=callingIntent.getStringExtra("phone");
-        Email=callingIntent.getStringExtra("email");
-        Addar=callingIntent.getStringExtra("adhar");
-        NetworkName=callingIntent.getStringExtra("Networkname");
-        Doorno=callingIntent.getStringExtra("Doorno");
-        StreetName=callingIntent.getStringExtra("Streetname");
-        Pin=callingIntent.getStringExtra("pin");
-        Village=callingIntent.getStringExtra("village");
-        Taluk=callingIntent.getStringExtra("Taluk");
-        NomineeAddar=callingIntent.getStringExtra("Naddar");
-        NomineeName=callingIntent.getStringExtra("Nname");
-        NomineeDob=callingIntent.getStringExtra("Ndob");
-        NomineeRelation=callingIntent.getStringExtra("Nrelation");
-        Password=callingIntent.getStringExtra("Password");
-        Pic=callingIntent.getStringExtra("Pic");
-        State=callingIntent.getStringExtra("State");
-        District=callingIntent.getStringExtra("district");
-
-
-
-
 
         Checkout.preload(getApplicationContext());
 
@@ -110,37 +80,6 @@ co.setKeyID("rzp_test_I9bLBsYMiIzN1P");
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-        SignupViewModel viewModel=new SignupViewModel();
-
-            viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
-                    Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password,razorpayPaymentID,this);
-            new Thread(() -> {
-
-                try {
-
-                    SendMail sender = new SendMail(
-
-                            "kclmailsender@gmail.com",
-
-                            "kcl@1234");
-
-
-
-                    sender.sendMail("New Customer Registered", "Name:-"+Name+" Email:-"+Email+"Phone:-"+Phone,
-
-                            "Sender",
-
-                            "kscoa.r@gmail.com", vie);
-
-                    Log.d(TAG, "onPaymentSuccess:sent" );
-                } catch (Exception e) {
-
-                    Toast.makeText(PaymentActivity.this, "Error", Toast.LENGTH_LONG).show();
-
-                }
-
-            }).start();
-
 
         } catch (Exception e) {
             Log.e(TAG, "Payment Failed", e);

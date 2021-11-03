@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KCL VARIENTS/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.1388888888888889" />
+        <entry key="..\:/KCL VARIENTS/KCL/app/src/main/res/layout/activity_signin.xml" value="0.1388888888888889" />
+        <entry key="..\:/KCL VARIENTS/KCL/app/src/main/res/layout/activity_signup.xml" value="0.16" />
+        <entry key="..\:/KCL VARIENTS/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.1388888888888889" />
         <entry key="..\:/Projects/2/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.1" />
         <entry key="..\:/Projects/2/KCL/app/src/main/res/layout/activity_payment.xml" value="0.1" />
         <entry key="..\:/Projects/2/KCL/app/src/main/res/layout/activity_profile.xml" value="0.1" />
@@ -23,6 +27,13 @@
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
         <entry key="..\:/Projects/KCL/app/src/main/res/layout/gallery_fragment.xml" value="0.2552083333333333" />
         <entry key="..\:/Projects/KCL/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2512820512820513" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.25" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_payment.xml" value="0.25" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_profile.xml" value="0.2" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_signin.xml" value="0.25" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_signup.xml" value="0.1" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_signupasmember.xml" value="0.25" />
+        <entry key="..\:/Server/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/drawable/ic_tdv_m214_05.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/drawable/textback.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.264" />

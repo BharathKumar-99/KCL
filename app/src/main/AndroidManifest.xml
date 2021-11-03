@@ -11,8 +11,6 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/kscoa"
@@ -22,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".SignupandSignin.Signup.Signupasmember"
+            android:exported="false" />
         <activity
             android:name=".SignupandSignin.Signup.PaymentActivity"
             android:exported="false" />

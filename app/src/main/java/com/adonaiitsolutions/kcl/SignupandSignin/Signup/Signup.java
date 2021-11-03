@@ -6,7 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.lifecycle.ViewModelProvider;
 
 
 import android.annotation.SuppressLint;
@@ -22,6 +22,7 @@ import android.os.Bundle;
 
 import android.util.Base64;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +30,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.adonaiitsolutions.kcl.R;
+import com.adonaiitsolutions.kcl.SignupandSignin.SendMail;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.razorpay.Checkout;
 import org.jetbrains.annotations.NotNull;
@@ -61,6 +65,7 @@ public class Signup extends AppCompatActivity  {
     Spinner state,district;
     Button pic,submit;
     Uri uri;
+    SignupViewModel viewModel;
     int code;
     final Calendar myCalendar = Calendar.getInstance();
     Boolean validated=false;
@@ -96,6 +101,10 @@ public class Signup extends AppCompatActivity  {
         submit =  findViewById(R.id.submit);
         password =  findViewById(R.id.password);
         Checkout.preload(getApplicationContext());
+
+        viewModel=new ViewModelProvider(this).get(SignupViewModel.class);
+
+
         ActivityResultLauncher<Intent> launcher =
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
                     if (result.getResultCode() == RESULT_OK) {
@@ -229,30 +238,35 @@ public class Signup extends AppCompatActivity  {
                 int min=1000,max=9999;
                 int randomnumber=rand.nextInt((max-min)+1)+min;
 
-                Intent myIntent = new Intent(this, PaymentActivity.class);
-                myIntent.putExtra("name",Name);
-                myIntent.putExtra("fname",Fathername);
-                myIntent.putExtra("dob",Dob);
-                myIntent.putExtra("blood",Blood);
-                myIntent.putExtra("phone",Phone);
-                myIntent.putExtra("email",Email);
-                myIntent.putExtra("adhar",Addar);
-                myIntent.putExtra("Networkname",NetworkName);
-                myIntent.putExtra("Doorno",Doorno);
-                myIntent.putExtra("Streetname",StreetName);
-                myIntent.putExtra("pin",Pin);
-                myIntent.putExtra("village",Village);
-                myIntent.putExtra("Taluk",Taluk);
-                myIntent.putExtra("Naddar",NomineeAddar);
-                myIntent.putExtra("Nname",NomineeName);
-                myIntent.putExtra("Ndob",NomineeDob);
-                myIntent.putExtra("Nrelation",NomineeRelation);
-                myIntent.putExtra("Password",Password);
-                myIntent.putExtra("Pic",Pic);
-                myIntent.putExtra("State",State);
-                myIntent.putExtra("district",District);
-                startActivity(myIntent);
 
+                viewModel.postData(Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,
+                        Village,Taluk,NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password);
+                new Thread(() -> {
+
+                    try {
+
+                        SendMail sender = new SendMail(
+
+                                "kclmailsender@gmail.com",
+
+                                "kcl@1234");
+
+
+
+                        sender.sendMail("New Customer Registered", "Name:-"+Name+" Email:-"+Email+"Phone:-"+Phone,
+
+                                "Sender",
+
+                                "kscoa.r@gmail.com", v);
+
+                        Log.d("TAG", "onPaymentSuccess:sent" );
+                    } catch (Exception e) {
+
+                        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }).start();
 
 
 

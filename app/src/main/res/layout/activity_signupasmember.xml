@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".SignupandSignin.Signup.Signup">
+    tools:context=".SignupandSignin.Signup.Signupasmember">
 
     <TextView
         android:id="@+id/textView5"
@@ -94,14 +94,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
                 android:background="@drawable/textback"
                 android:drawableStart="@drawable/ic_baseline_local_phone_24"
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/phone_number"
-
                 android:inputType="number|phone"
+                android:padding="15dp" />
+            <EditText
+                android:id="@+id/memberid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textback"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="Memberid"
+                android:inputType="text"
                 android:padding="15dp" />
 
             <EditText
@@ -315,17 +324,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/memebrsignin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Or Signin As a Member"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

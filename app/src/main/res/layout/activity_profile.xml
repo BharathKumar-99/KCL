@@ -6,6 +6,223 @@
     android:layout_height="match_parent"
     tools:context=".ui.Profile.ProfileActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:elevation="20dp"
+                app:cardBackgroundColor="#E4DBDB"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingStart="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Details"
+                        android:layout_marginTop="10dp"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/pemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/buttonround"
+                        android:drawablePadding="10dp"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="email"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp"
+                        app:drawableStartCompat="@drawable/ic_baseline_email_24"
+                        app:drawableTint="#D32F2F" />
+
+                    <TextView
+                        android:id="@+id/pnumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:drawablePadding="10dp"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp"
+                        app:drawableStartCompat="@drawable/ic_baseline_local_phone_24"
+                        app:drawableTint="#303F9F" />
+
+                    <TextView
+                        android:id="@+id/pblood"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/paddar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/id"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Employee Details"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/empdeatails"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nominee Details"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/nomname"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/nomadhar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/nomdob"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/buttonround"
+                        android:elevation="20dp"
+                        android:padding="10dp"
+                        android:paddingStart="25dp"
+                        android:text="TextView"
+                        android:textColor="#1976D2"
+                        android:textSize="24sp" />
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/buttonround"
+                        android:padding="10dp"
+                        android:text="Pay"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/logout"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/buttonround"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Logout" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
@@ -52,104 +269,4 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:elevation="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        app:cardBackgroundColor="#E4DBDB"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingStart="25dp">
-
-            <TextView
-                android:id="@+id/pemail"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="25dp"
-                android:autoSizeTextType="uniform"
-                android:background="@drawable/buttonround"
-                android:drawablePadding="10dp"
-                android:elevation="20dp"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:text="email"
-                android:textColor="#1976D2"
-                android:textSize="24sp"
-                app:drawableStartCompat="@drawable/ic_baseline_email_24"
-                app:drawableTint="#D32F2F" />
-
-            <TextView
-                android:id="@+id/pnumber"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="25dp"
-                android:background="@drawable/buttonround"
-                android:drawablePadding="10dp"
-                android:elevation="20dp"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:text="TextView"
-                android:textColor="#1976D2"
-                android:textSize="24sp"
-                app:drawableStartCompat="@drawable/ic_baseline_local_phone_24"
-                app:drawableTint="#303F9F" />
-
-            <TextView
-                android:id="@+id/pblood"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="25dp"
-                android:background="@drawable/buttonround"
-                android:elevation="20dp"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:text="TextView"
-                android:textColor="#1976D2"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/paddar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="25dp"
-                android:background="@drawable/buttonround"
-                android:elevation="20dp"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:text="TextView"
-                android:textColor="#1976D2"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/id"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="25dp"
-                android:background="@drawable/buttonround"
-                android:elevation="20dp"
-                android:padding="10dp"
-                android:paddingStart="25dp"
-                android:text="TextView"
-                android:textColor="#1976D2"
-                android:textSize="24sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

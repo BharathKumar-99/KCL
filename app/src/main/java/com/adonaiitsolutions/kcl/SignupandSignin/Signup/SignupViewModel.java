@@ -52,19 +52,23 @@ import retrofit2.Retrofit;
 
 
 
-public class SignupViewModel {
+public class SignupViewModel extends AndroidViewModel{
     String Response;
     @SuppressLint("StaticFieldLeak")
     Context context;
 
+    public SignupViewModel(@NonNull Application application) {
+        super(application);
+        context=getApplication().getApplicationContext();
+    }
 
 
-    public String postData(String name, String father_name, String dob, String blood, String phone,
+    public void postData(String name, String father_name, String dob, String blood, String phone,
                            String email, String adhar, String networkname, String doorno,
                            String streetname, String pin, String village, String taluk,
                            String nomineename, String nomineeaddar, String nomineerelation,
                            String nomineedob, String state, String district, String photo,
-                           String Password,String pid,Context context) {
+                           String Password) {
 
 this.context=context;
         String url = "http://aiccollege.com/PHP/signup.php";
@@ -102,7 +106,7 @@ context.startActivity(new Intent(context, FirstPage.class));
                 parms.put("n_dob", nomineedob);
                 parms.put("password", Password);
                 parms.put("upload", photo);
-                parms.put("pid",pid);
+
                 return parms;
             }
         };
@@ -110,7 +114,6 @@ context.startActivity(new Intent(context, FirstPage.class));
         requestQueue.add(stringRequest);
 
 
-        return Response;
     }
 
 
