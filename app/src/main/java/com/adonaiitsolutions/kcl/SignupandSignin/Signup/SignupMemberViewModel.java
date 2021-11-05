@@ -6,41 +6,41 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+
 import com.adonaiitsolutions.kcl.SignupandSignin.FirstPage;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import java.util.HashMap;
 import java.util.Map;
 
+public class SignupMemberViewModel extends AndroidViewModel {
 
-public class SignupViewModel extends AndroidViewModel{
     @SuppressLint("StaticFieldLeak")
     Context context;
-
-    public SignupViewModel(@NonNull Application application) {
+    public SignupMemberViewModel(@NonNull Application application) {
         super(application);
-        context=getApplication().getApplicationContext();
+        this.context=getApplication().getApplicationContext();
     }
 
-
-    public void postData(String name, String father_name, String dob, String blood, String phone,
-                           String email, String adhar, String networkname, String doorno,
-                           String streetname, String pin, String village, String taluk,
-                           String nomineename, String nomineeaddar, String nomineerelation,
-                           String nomineedob, String state, String district, String photo,
-                           String Password) {
-
+    public void postData(String name, String fathername, String dob, String blood, String phone,
+                         String email, String addar, String networkName, String doorno,
+                         String streetName, String pin, String village, String taluk,
+                         String nomineeName, String nomineeAddar, String nomineeRelation,
+                         String nomineeDob, String state, String district, String pic, String password,String memberid) {
 
         String url = "http://aiccollege.com/PHP/signup.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                response ->{ Log.d("TAG", "onResponse: " + response);
+                response -> {
+                    Log.d("TAG", "onResponse: " + response);
                     Toast.makeText(context, "login done", Toast.LENGTH_SHORT).show();
-context.startActivity(new Intent(context, FirstPage.class));
+                    context.startActivity(new Intent(context, FirstPage.class));
 
                 },
                 error -> Log.d("TAG", "onErrorResponse: " + error.toString())) {
@@ -49,27 +49,28 @@ context.startActivity(new Intent(context, FirstPage.class));
                 Map<String, String> parms = new HashMap<>();
                 parms.put("name", name);
                 parms.put("email", email);
-                parms.put("fname", father_name);
+                parms.put("fname", fathername);
                 parms.put("dob", dob);
                 parms.put("blood_group", blood);
                 parms.put("telephone", phone);
-                parms.put("adhar_card", adhar);
-                parms.put("network_name", networkname);
+                parms.put("adhar_card", addar);
+                parms.put("network_name", networkName);
                 parms.put("address", doorno);
-                parms.put("address2", streetname);
+                parms.put("address2", streetName);
                 parms.put("country", "IN");
                 parms.put("state", state);
                 parms.put("city", district);
                 parms.put("postcode", pin);
-                Log.d("TAG", "getParams: " + photo);
+                Log.d("TAG", "getParams: " + pic);
                 parms.put("taluk", taluk);
                 parms.put("village", village);
-                parms.put("nominename", nomineename);
-                parms.put("nominename_adhar", nomineeaddar);
-                parms.put("nominename_relation", nomineerelation);
-                parms.put("n_dob", nomineedob);
-                parms.put("password", Password);
-                parms.put("upload", photo);
+                parms.put("nominename", nomineeName);
+                parms.put("nominename_adhar", nomineeAddar);
+                parms.put("nominename_relation", nomineeRelation);
+                parms.put("n_dob", nomineeDob);
+                parms.put("password", password);
+                parms.put("upload", pic);
+                parms.put("memberid", memberid);
 
                 return parms;
             }
@@ -77,8 +78,7 @@ context.startActivity(new Intent(context, FirstPage.class));
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 
-
     }
-
-
 }
+
+
