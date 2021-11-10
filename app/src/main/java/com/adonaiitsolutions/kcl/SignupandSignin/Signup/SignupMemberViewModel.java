@@ -34,7 +34,7 @@ public class SignupMemberViewModel extends AndroidViewModel {
                          String nomineeName, String nomineeAddar, String nomineeRelation,
                          String nomineeDob, String state, String district, String pic, String password,String memberid) {
 
-        String url = "http://aiccollege.com/PHP/signup.php";
+        String url = "https://kscoa.in/Php/signupemp.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {

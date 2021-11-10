@@ -36,11 +36,13 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="409dp"
-        android:layout_height="593dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scrollView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scrollView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0">
@@ -106,10 +108,10 @@
                 android:ems="10"
                 android:hint="@string/blood_group"
 
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/phonenumber"
@@ -152,10 +154,10 @@
                 android:ems="10"
                 android:hint="@string/email"
 
+                android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:padding="15dp"
-                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/password"
@@ -168,10 +170,10 @@
                 android:ems="10"
                 android:hint="@string/password"
 
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                tools:ignore="TextContrastCheck,TextContrastCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
             <EditText
                 android:id="@+id/adharnum"
@@ -181,9 +183,9 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/aadhaar_number"
+                android:importantForAutofill="no"
                 android:inputType="number"
-                android:padding="15dp"
-                android:importantForAutofill="no" />
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/networkname"
@@ -193,9 +195,9 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/network_name"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:padding="15dp"
-                android:importantForAutofill="no" />
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/doorno"
@@ -205,21 +207,58 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/door_no"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:padding="15dp"
-                android:importantForAutofill="no" />
+                android:padding="15dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_as_a_member"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/guideline8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="50dp">
 
             <EditText
                 android:id="@+id/streetname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/street_name"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:padding="15dp"
-                android:importantForAutofill="no" />
+                android:padding="15dp" />
 
             <EditText
                 android:id="@+id/pin"
@@ -231,11 +270,11 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/pincode"
+                android:importantForAutofill="no"
                 android:inputType="textPostalAddress"
-                android:padding="15dp"
 
-                tools:ignore="TextFields"
-                android:importantForAutofill="no" />
+                android:padding="15dp"
+                tools:ignore="TextFields" />
 
             <EditText
                 android:id="@+id/village"
@@ -245,10 +284,10 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/village"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -262,7 +301,8 @@
                 android:id="@+id/state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -277,7 +317,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:paddingTop="15dp" />
+                android:paddingTop="15dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
                 android:id="@+id/taluk"
@@ -287,10 +328,10 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/taluk"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <EditText
                 android:id="@+id/nname"
@@ -300,10 +341,10 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/nominee_name"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <EditText
                 android:id="@+id/naddar"
@@ -313,10 +354,10 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/nominee_aadhaar_no"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <EditText
                 android:id="@+id/nrelation"
@@ -326,10 +367,10 @@
                 android:background="@drawable/textback"
                 android:ems="10"
                 android:hint="@string/nominee_relationship"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="15dp"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <EditText
                 android:id="@+id/ndob"
@@ -339,9 +380,9 @@
                 android:ems="10"
                 android:focusable="false"
                 android:hint="@string/nominee_dob"
+                android:importantForAutofill="no"
                 android:inputType="date"
-                android:paddingTop="15dp"
-                android:importantForAutofill="no" />
+                android:paddingTop="15dp" />
 
             <Button
                 android:id="@+id/photo"
@@ -361,26 +402,7 @@
                 android:background="@drawable/buttonround"
                 android:text="@string/submit"
                 android:textColor="#D32F2F" />
-
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_as_a_member"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/guideline8" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

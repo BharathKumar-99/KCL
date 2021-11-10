@@ -23,16 +23,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
-    TextView name,email,blood,id,addar,number;
+    TextView name,email,blood,id,addar,number,nomname,nomadhar,nomdob;
     ImageView profileimg;
     String value;
     
-    String url="https://www.aiccollege.com/PHP/get.php";
+    String url="https://www.kscia.in/Php/getuser.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         name=findViewById(R.id.pname);
         number=findViewById(R.id.pnumber);
         profileimg=findViewById(R.id.profile_image);
@@ -40,11 +39,14 @@ public class ProfileActivity extends AppCompatActivity {
         id=findViewById(R.id.id);
         email=findViewById(R.id.pemail);
         addar=findViewById(R.id.paddar);
+        nomname=findViewById(R.id.nomname);
+        nomadhar=findViewById(R.id.nomadhar);
+        nomdob=findViewById(R.id.nomdob);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
              value = extras.getString("key");
-            //The key argument here must match that used in the other activity
+
         }
 
 
@@ -70,8 +72,11 @@ public class ProfileActivity extends AppCompatActivity {
                         String blood1 = jsonObject.getString("blood_group");
                         String number1 = jsonObject.getString("telephone");
                         String adhar1 = jsonObject.getString("adhar_card");
+                        String nomname1=jsonObject.getString("nomname");
+                        String nomdob1=jsonObject.getString("nomdob");
+                        String nomadh1=jsonObject.getString("nomadh");
 
-                        String imgurl="https://www.aiccollege.com/PHP/"+img;
+                        String imgurl="https://www.kscoa.in/Php/"+img;
 
                         name.setText(firstName);
                         email.setText(email1);
@@ -79,6 +84,10 @@ public class ProfileActivity extends AppCompatActivity {
                         blood.setText(blood1);
                         number.setText(number1);
                         addar.setText(adhar1);
+                        nomname.setText(nomname1);
+                        nomadhar.setText(nomadh1);
+                        nomdob.setText(nomdob1);
+
                         Glide
                                 .with(this)
                                 .load(imgurl)

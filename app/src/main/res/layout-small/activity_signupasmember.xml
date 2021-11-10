@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:autoSizeTextType="uniform"
         android:gravity="end"
         android:text="@string/signup"

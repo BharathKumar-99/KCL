@@ -46,6 +46,33 @@
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/pop.xml" value="0.25" />
         <entry key="..\:/Users/Bhara/AndroidStudioProjects/KCL/app/src/main/res/layout/profile_fragment.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_baseline_pin_drop_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_login.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/ic_tdv_m214_05.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/drawable/name.xml" value="0.2203125" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-large/activity_first_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-large/activity_signin.xml" value="0.18" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-ldpi/activity_signin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-small/activity_first_page.xml" value="0.9" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-small/activity_signin.xml" value="1.1" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-small/activity_signup.xml" value="0.67" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-small/activity_signupasmember.xml" value="1.25" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-sw600dp/activity_profile.xml" value="0.33" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-sw600dp/activity_signup.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-sw600dp/activity_signupasmember.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout-v26/activity_signin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_first_page.xml" value="0.1" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_payment.xml" value="0.33" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_profile.xml" value="0.18" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_signin.xml" value="0.25" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_signupasmember.xml" value="0.22" />
+        <entry key="..\:/Users/Bharath Kumar/StudioProjects/KCL/app/src/main/res/layout/activity_splash_screen.xml" value="0.17125" />
       </map>
     </option>
   </component>

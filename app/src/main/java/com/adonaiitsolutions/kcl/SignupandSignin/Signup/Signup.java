@@ -61,7 +61,7 @@ public class Signup extends AppCompatActivity  {
     String Name,Fathername,Dob,Blood,Phone,Email,Addar,NetworkName,Doorno,StreetName,Pin,Village,Taluk,
             NomineeName,NomineeAddar,NomineeRelation,NomineeDob,State,District,Pic,Password;
     TextView name,father_name,dob,blood,phone,email,adhar,networkname,doorno,streetname,pin,village,
-            taluk,nomineename,nomineeaddar,nomineerelation,nomineedob,password;
+            taluk,nomineename,nomineeaddar,nomineerelation,nomineedob,password,emp;
     Spinner state,district;
     Button pic,submit;
     Uri uri;
@@ -100,6 +100,7 @@ public class Signup extends AppCompatActivity  {
         pic =  findViewById(R.id.photo);
         submit =  findViewById(R.id.submit);
         password =  findViewById(R.id.password);
+        emp=findViewById(R.id.memebrsignin);
         Checkout.preload(getApplicationContext());
 
         viewModel=new ViewModelProvider(this).get(SignupViewModel.class);
@@ -174,6 +175,14 @@ public class Signup extends AppCompatActivity  {
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.karnataka_district));
+
+
+
+        emp.setOnClickListener(v->{
+            startActivity(new Intent(this,Signupasmember.class));
+        });
+
+
 
         district.setAdapter(adapter1);
 

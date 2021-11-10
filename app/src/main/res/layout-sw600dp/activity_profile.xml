@@ -7,11 +7,12 @@
     tools:context=".ui.Profile.ProfileActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/scrollView5"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/scrollView6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2"
         app:layout_constraintVertical_bias="0.0">
@@ -85,7 +86,8 @@
                         android:textColor="#1976D2"
                         android:textSize="24sp"
                         app:drawableStartCompat="@drawable/ic_baseline_local_phone_24"
-                        app:drawableTint="#303F9F" />
+                        app:drawableTint="#303F9F"
+                        tools:targetApi="lollipop" />
 
                     <TextView
                         android:id="@+id/pblood"
@@ -137,6 +139,96 @@
                         android:id="@+id/empdeatails"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:elevation="20dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/kscoa"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="0dp"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/pname"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:drawablePadding="10dp"
+                android:elevation="20dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@android:string/unknownName"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:drawableTint="#388E3C"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/scrollView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scrollView5"
+        app:layout_constraintTop_toTopOf="@+id/scrollView5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:elevation="20dp"
+                app:cardBackgroundColor="#E4DBDB"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                tools:targetApi="lollipop">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -212,52 +304,5 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:elevation="20dp"
-                android:foregroundGravity="center"
-                android:src="@drawable/kscoa"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp"
-                tools:targetApi="lollipop" />
-
-            <TextView
-                android:id="@+id/pname"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:drawablePadding="10dp"
-                android:elevation="20dp"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@android:string/unknownName"
-                android:textColor="#000000"
-                android:textSize="24sp"
-                app:drawableTint="#388E3C"
-                tools:targetApi="lollipop" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

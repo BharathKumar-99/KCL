@@ -53,6 +53,20 @@
     <string name="nominee_dob">Nominee DOB</string>
     <string name="submit">Submit</string>
     <string name="login">Login</string>
+    <string name="todo">TODO</string>
+    <string name="or_signin_as_a_member">Or Signin As a Employee</string>
+    <string name="memberid">Memberid</string>
+    <string name="signup_as_a_member">Signup as a member</string>
+    <string name="pay">Pay</string>
+    <string name="logout">Logout</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="employee_details">Employee Details</string>
+    <string name="nominee_details">Nominee Details</string>
+    <string name="id">id</string>
+    <string name="logo">logo</string>
+    <string name="membership_fee">Membership Fee</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="inr_1000">INR 1000</string>
 
 
 </resources>

@@ -35,7 +35,7 @@ public class SignupViewModel extends AndroidViewModel{
                            String Password) {
 
 
-        String url = "http://aiccollege.com/PHP/signup.php";
+        String url = "https://kscoa.in/Php/signup.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response ->{ Log.d("TAG", "onResponse: " + response);

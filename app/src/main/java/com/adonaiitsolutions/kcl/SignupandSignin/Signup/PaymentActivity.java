@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 
 import com.adonaiitsolutions.kcl.R;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -24,15 +29,16 @@ import org.json.JSONObject;
 public class PaymentActivity extends Activity implements PaymentResultListener {
     private static final String TAG = PaymentActivity.class.getSimpleName();
     String Phone,Email;
+    TextView amount;
     View vie;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_payment);
-
+        amount=findViewById(R.id.amount);
         Checkout.preload(getApplicationContext());
-
+        getamount();
         // Payment button created by you in XML layout
         Button button = findViewById(R.id.btn_pay);
 
@@ -45,6 +51,23 @@ public class PaymentActivity extends Activity implements PaymentResultListener {
             httpIntent.setData(Uri.parse("https://razorpay.com/sample-application/"));
             startActivity(httpIntent);
         });
+    }
+
+    private void getamount() {
+        String url = "https://string_url/";
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest
+                stringRequest
+                = new StringRequest(
+                Request.Method.GET,
+                url,
+                (Response.Listener<String>) response -> {
+                    amount.setText(response.toString());
+                },
+                error -> {
+
+                });
+        requestQueue.add(stringRequest);
     }
 
     public void startPayment(View vi) {
